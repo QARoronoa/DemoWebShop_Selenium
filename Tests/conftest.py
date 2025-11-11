@@ -29,3 +29,7 @@ def login_page(setup):
 @pytest.fixture
 def formulaire_enregistrement():
     return login.fill_register_form()
+
+@pytest.fixture
+def formulaire_enregistrement_echoue():
+    return login.fill_register_form_avec_credentials_existant()
