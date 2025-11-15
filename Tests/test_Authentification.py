@@ -2,6 +2,8 @@ import time
 
 import allure
 from pytest_bdd import *
+from pytest_bdd import parsers
+
 from PagesObjects.HomePage import HomePage
 from PagesObjects.LoginPage import LoginPage
 
@@ -49,3 +51,24 @@ def Lutilisateur_remplie_le_formulaire_avec_credentials_existant(login_page, for
 def visualiser_message_derreur_mail_existant(login_page):
     login_page.verifier_message_derreur_email_deja_existant()
 
+    # ________connexion valide____________#
+
+@given('je clique sur "Log in"')
+@allure.step('clique sur le bouton login')
+def user_clique_sur_login(home_page):
+    home_page.cliquer_sur_le_bouton_login()
+
+@when(parsers.cfparse('je saisis un email et mot de passe valides {email} {password}'))
+@allure.step('Je saisis le mdp {email} et le password {password}')
+def user_saisit_credentials(login_page, email, password):
+    login_page.saisir_mdp_et_password(email, password)
+
+@step('je clique sur "Log in"')
+@allure.step('je clique sur "Log in"')
+def user_clique_sur_login(login_page):
+    login_page.cliquer_sur_le_bouton_login()
+
+@step('je suis connecté et je vois le lien "Log out"')
+@allure.step('je suis connecté et je vois le lien "Log out"')
+def user_visualise_le_bouton_logout(home_page):
+    home_page.visualiser_le_bouton_logout()

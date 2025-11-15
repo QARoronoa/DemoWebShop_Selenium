@@ -16,6 +16,10 @@ class LoginPage(Basepage):
     champ_confirm_password = (By.ID, "ConfirmPassword")
     bouton_register = (By.ID, "register-button")
     message_erreur_emailExistant = (By.CSS_SELECTOR, 'div.validation-summary-errors li')
+    champ_email_login = (By.ID,"Email")
+    champ_password_login = (By.ID, "Password")
+    bouton_login = (By.CSS_SELECTOR, ".login-button")
+
 
     #methodes
     def __init__(self, driver):
@@ -40,3 +44,12 @@ class LoginPage(Basepage):
         # self.driver.find_element(By.CSS_SELECTOR, ".validation-summary-errors li")
         element = self.capturer_text_element(self.message_erreur_emailExistant)
         assert "The specified email already exists" in element
+
+    def saisir_mdp_et_password(self, email, password):
+        self.saisir_du_text_dans_le_champ(self.champ_email_login, email)
+        self.saisir_du_text_dans_le_champ(self.champ_password_login, password)
+
+    def cliquer_sur_le_bouton_login(self):
+        self.cliquer_sur_un_element(self.bouton_login)
+
+
