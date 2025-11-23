@@ -72,3 +72,14 @@ def user_clique_sur_login(login_page):
 @allure.step('je suis connecté et je vois le lien "Log out"')
 def user_visualise_le_bouton_logout(home_page):
     home_page.visualiser_le_bouton_logout()
+
+    # ________connexion invalide____________#
+
+@when(parsers.cfparse("je saisis un email et mot de passe invalides {email} {password}"))
+@allure.step("connexion avec des credentials invalides")
+def user_renseigne_credentials(login_page, email, password):
+    login_page.saisir_mdp_et_password(email, password)
+
+@then("un message d'erreur s'affiche")
+def user_visualise_un_message_derreur(login_page):
+    login_page.verifier_message_connexion_ko_est_visible()

@@ -27,3 +27,13 @@ Feature: Authentification & Création de compte
     |email               | password   |
     |mdenis@example.com  | ^5W5L9z2q3 |
 
+
+  Scenario Outline: Connexion KO
+    Given je clique sur "Log in"
+    When je saisis un email et mot de passe invalides <email> <password>
+    And je clique sur "Log in"
+    Then un message d'erreur s'affiche
+
+    Examples:
+    |email                 | password     |
+    |mdenisss@example.com  | ^5W5L9zss2q3 |

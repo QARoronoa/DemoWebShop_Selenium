@@ -19,6 +19,7 @@ class LoginPage(Basepage):
     champ_email_login = (By.ID,"Email")
     champ_password_login = (By.ID, "Password")
     bouton_login = (By.CSS_SELECTOR, ".login-button")
+    message_erreur_connexion_ko = (By.CSS_SELECTOR, ".validation-summary-errors")
 
 
     #methodes
@@ -51,5 +52,9 @@ class LoginPage(Basepage):
 
     def cliquer_sur_le_bouton_login(self):
         self.cliquer_sur_un_element(self.bouton_login)
+
+    def verifier_message_connexion_ko_est_visible(self):
+        WebDriverWait(self.driver, 20).until(EC.visibility_of_element_located(self.message_erreur_connexion_ko))
+        return True
 
 
