@@ -83,3 +83,16 @@ def user_renseigne_credentials(login_page, email, password):
 @then("un message d'erreur s'affiche")
 def user_visualise_un_message_derreur(login_page):
     login_page.verifier_message_connexion_ko_est_visible()
+
+
+    #------------Deconnexion---------------------#
+
+@when('je clique sur "log Out"')
+@allure.step("déconnexion")
+def user_clique_sur_logout(home_page):
+    home_page.cliquer_sur_le_bouton_logout()
+
+@then('Je suis déconnecté et je visualise le lien "Log in"')
+@allure.step('le lien "Log in" est visible')
+def user_visualise_login(home_page):
+    home_page.visualiser_le_bouton_login()

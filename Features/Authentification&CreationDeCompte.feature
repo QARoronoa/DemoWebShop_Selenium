@@ -37,3 +37,16 @@ Feature: Authentification & Création de compte
     Examples:
     |email                 | password     |
     |mdenisss@example.com  | ^5W5L9zss2q3 |
+
+
+    Scenario Outline: Déconnexion
+      Given je clique sur "Log in"
+      When je saisis un email et mot de passe invalides <email> <password>
+      And je clique sur "Log in"
+      Then je suis connecté et je vois le lien "Log out"
+      When je clique sur "log Out"
+      Then Je suis déconnecté et je visualise le lien "Log in"
+
+      Examples:
+    |email               | password   |
+    |mdenis@example.com  | ^5W5L9z2q3 |

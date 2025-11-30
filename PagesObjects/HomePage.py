@@ -27,3 +27,10 @@ class HomePage(Basepage):
     def visualiser_le_bouton_logout(self):
         texte = self.capturer_text_element(self.bouton_logout)
         assert texte == "Log out", f"attendu 'Logout', obtenu {texte}"
+
+    def cliquer_sur_le_bouton_logout(self):
+        self.cliquer_sur_un_element(self.bouton_logout)
+
+    def visualiser_le_bouton_login(self):
+        bouton_login = self.capturer_text_element(self.bouton_login)
+        assert bouton_login == "Log in"
