@@ -4,6 +4,7 @@ from selenium.webdriver.chrome.options import Options
 from Data.login_data import login
 from PagesObjects.HomePage import HomePage
 from PagesObjects.LoginPage import LoginPage
+from PagesObjects.SearchPage import SearchPage
 
 
 @pytest.fixture(scope='function')
@@ -25,6 +26,10 @@ def home_page(setup):
 @pytest.fixture
 def login_page(setup):
     return LoginPage(setup)
+
+@pytest.fixture
+def search_page(setup):
+    return SearchPage(setup)
 
 @pytest.fixture
 def formulaire_enregistrement():
