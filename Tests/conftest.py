@@ -5,6 +5,7 @@ from Data.login_data import login
 from PagesObjects.HomePage import HomePage
 from PagesObjects.LoginPage import LoginPage
 from PagesObjects.SearchPage import SearchPage
+from PagesObjects.CategoriePage import CategoriePage
 
 
 @pytest.fixture(scope='function')
@@ -30,6 +31,10 @@ def login_page(setup):
 @pytest.fixture
 def search_page(setup):
     return SearchPage(setup)
+
+@pytest.fixture
+def categorie_page(setup):
+    return CategoriePage(setup)
 
 @pytest.fixture
 def formulaire_enregistrement():

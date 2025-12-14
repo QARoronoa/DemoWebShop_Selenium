@@ -8,14 +8,12 @@ Feature: Recherche & Navigation Catalogue
     And je clique sur search
     Then Je suis redirigé vers la page recherche
     And le terme "book" apparaît dans le résultat de la recherche
-#
-#  Scenario: Navigation par catégorie
-#    Given je suis sur la page d’accueil
-#    When j’ouvre la catégorie "Books"
-#    Then la liste des livres est affichée
-#    And la breadcrumb indique "Books"
-#
-#
+
+  Scenario: Navigation par categorie
+    When je clique sur la catégorie "Books"
+    Then je suis redirigé vers la page Books
+    And le fil d'Ariane affiche "HOME/BOOKS"
+
 #  Scenario: Tri des produits
 #    Given je suis sur la catégorie "Books"
 #    When je sélectionne "Price: Low to High" dans le tri

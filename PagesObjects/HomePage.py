@@ -42,3 +42,6 @@ class HomePage(Basepage):
 
     def cliquer_sur_le_bouton_search(self):
         self.cliquer_sur_un_element(self.bouton_search)
+
+    def cliquer_sur_une_categorie(self, categorie):
+        self.driver.find_element(By.LINK_TEXT, categorie).click()

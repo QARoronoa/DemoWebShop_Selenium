@@ -36,4 +36,17 @@ def user_redirige_vers_la_page_search(search_page: SearchPage):
 def user_visualise_ca_recherche(search_page: SearchPage):
     search_page.verifier_que_larticle_apparait_dans_la_recherche("book")
 
-    time.sleep(5)
+@when('je clique sur la catégorie "Books"')
+@allure.step('clique sur la categorie books')
+def user_clique_sur_books(home_page):
+    home_page.cliquer_sur_une_categorie("Books")
+
+@then("je suis redirigé vers la page Books")
+@allure.step('Redirection vers la page books')
+def user_redirige_vers_la_page_books(categorie_page):
+    categorie_page.verifier_le_titre_de_la_page("Demo Web Shop. Books")
+
+@step('le fil d\'Ariane affiche "HOME/BOOKS"')
+@allure.step("fil d'Ariane affiche BOOKS")
+def user_visualise_book_dans_le_fil_dariane(categorie_page):
+    categorie_page.verifier_que_book_est_visible_dans_le_fil_dariane()
